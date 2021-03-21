@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="h1">26sp</dimen>
+    <dimen name="h2">24sp</dimen>
+    <dimen name="h3">22sp</dimen>
+    <dimen name="h4">20sp</dimen>
+    <dimen name="h5">18sp</dimen>
+    <dimen name="h6">16sp</dimen>
+    <dimen name="h7">14sp</dimen>
+    <dimen name="h8">12sp</dimen>
+    <dimen name="h9">10sp</dimen>
+
+
+    <dimen name="margin_xxs">2dp</dimen>
+    <dimen name="margin_xs">4dp</dimen>
+    <dimen name="margin_s">6dp</dimen>
+    <dimen name="margin_m">8dp</dimen>
+    <dimen name="margin_l">16dp</dimen>
+    <dimen name="margin_xl">18dp</dimen>
+    <dimen name="margin_xxl">24dp</dimen>
+    <dimen name="margin_xxxl">32dp</dimen>
+    <dimen name="margin_xxxxl">48dp</dimen>
+    <dimen name="margin_vl">64dp</dimen>
+    <dimen name="margin_vvl">72dp</dimen>
+
+    <dimen name="detail_app_height">300dp</dimen>
+    <dimen name="card_radius_global">6dp</dimen>
+</resources>

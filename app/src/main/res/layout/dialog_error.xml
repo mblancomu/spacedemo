@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_error_dialog"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/dialogTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:drawablePadding="@dimen/margin_m"
+        android:drawableStart="@drawable/ic_peligro"
+        android:drawableTint="@color/primary_dark"
+        android:gravity="center"
+        android:paddingTop="@dimen/margin_xs"
+        android:paddingBottom="@dimen/margin_xs"
+        android:textColor="@color/primary_dark"
+        android:textSize="@dimen/h3"
+        tools:text="Error" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/primary" />
+
+    <TextView
+        android:id="@+id/dialogMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_m"
+        android:layout_marginBottom="@dimen/margin_m"
+        android:gravity="center"
+        android:padding="@dimen/margin_m"
+        android:textColor="@color/primary_dark"
+        android:textSize="@dimen/h6"
+        tools:text="@string/msg_error" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/primary" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/margin_xs"
+        android:paddingBottom="@dimen/margin_xs">
+
+        <TextView
+            android:id="@+id/buttonCancel"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_marginEnd="1dp"
+            android:background="@drawable/selector_button_bottom_dialog"
+            android:gravity="center"
+            android:textColor="@color/textColorWhite"
+            android:textSize="@dimen/h3"
+            tools:text="Cancelar"
+            tools:ignore="NestedWeights" />
+    </LinearLayout>
+</LinearLayout>

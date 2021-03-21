@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">SpaceDemo</string>
+    <string name="title_list">List</string>
+    <string name="title_map">Map</string>
+    <string name="title_detail">Detail</string>
+    <string name="title_error">ERROR</string>
+
+    <string name="no_network">Sin Conexión</string>
+    <string name="no_network_message">No dispone de conexión a internet. Por favor, actualice sus datos cuando disponga de conexión.</string>
+    <string name="btn_ok">Aceptar</string>
+    <string name="btn_cancel">Cancelar</string>
+    <string name="msg_error">Se ha producido un error, algo fue mal. Por favor, intentelo de nuevo o reinicie la app.</string>
+    <string name="empty_list">Sin datos de Productos</string>
+</resources>

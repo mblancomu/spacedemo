@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_error_dialog"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/dialogTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:paddingTop="@dimen/margin_m"
+        android:paddingBottom="@dimen/margin_m"
+        android:textColor="@color/primary_dark"
+        android:textSize="@dimen/h3"
+        tools:text="Error" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginStart="@dimen/margin_m"
+        android:layout_marginEnd="@dimen/margin_m"
+        android:layout_height="1dp"
+        android:background="@color/primary_light" />
+
+    <TextView
+        android:id="@+id/dialogMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_l"
+        android:layout_marginBottom="@dimen/margin_xl"
+        android:gravity="center"
+        android:padding="@dimen/margin_m"
+        android:textColor="@color/primary_dark"
+        android:textSize="@dimen/h6"
+        tools:text="@string/msg_error" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/buttonCancel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_marginEnd="1dp"
+            android:background="@drawable/selector_button_left_dialog"
+            android:gravity="center"
+            android:textColor="@color/textColorWhite"
+            android:textSize="@dimen/h3"
+            android:text="@string/btn_cancel"
+            tools:text="Cancelar" />
+
+        <TextView
+            android:id="@+id/buttonOk"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/selector_button_right_dialog"
+            android:layout_gravity="center"
+            android:layout_marginStart="1dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/textColorWhite"
+            android:textSize="@dimen/h3"
+            android:text="@string/btn_ok"
+            tools:text="Aceptar" />
+    </LinearLayout>
+</LinearLayout>
