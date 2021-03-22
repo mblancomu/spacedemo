@@ -26,7 +26,7 @@ class SpaceViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             .load(imageUrl)
             .centerCrop()
             .placeholder(R.drawable.placeholder_spacelens)
-            .into(binding.ivThumbnail);
+            .into(binding.ivThumbnail)
     }
 
     private fun initListeners(listener: SpaceItemListeners, product: Products) {

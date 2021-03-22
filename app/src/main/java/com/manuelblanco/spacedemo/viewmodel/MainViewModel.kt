@@ -9,8 +9,8 @@ import androidx.lifecycle.viewModelScope
 import com.manuelblanco.core.model.Products
 import com.manuelblanco.core.model.Resource
 import com.manuelblanco.core.repository.SpaceRepository
-import com.manuelblanco.spacedemo.ui.map.MapFragment.Companion.LAT_MADRID
-import com.manuelblanco.spacedemo.ui.map.MapFragment.Companion.LNG_MADRID
+import com.manuelblanco.spacedemo.ui.map.MapFragment.Companion.LAT_SHAIGON
+import com.manuelblanco.spacedemo.ui.map.MapFragment.Companion.LNG_SHAIGON
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -81,8 +81,8 @@ class MainViewModel(
 
     fun fakeLocation(): Location {
         val location = Location(LocationManager.GPS_PROVIDER)
-        location.latitude = LAT_MADRID
-        location.longitude = LNG_MADRID
+        location.latitude = LAT_SHAIGON
+        location.longitude = LNG_SHAIGON
         return location
     }
 

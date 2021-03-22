@@ -69,6 +69,7 @@ dependencies {
 
     implementation deps.kotlin.stdlib
     implementation deps.app_compat
+    implementation deps.maps_utils
     implementation deps.material
     implementation deps.core_ktx
     implementation deps.constraint_layout
@@ -79,6 +80,10 @@ dependencies {
     implementation deps.lifecycle.java8
     implementation deps.swipe_refresh
     implementation deps.waveloading
+    implementation deps.play_services_location
+    implementation deps.play_services_maps
+    implementation deps.play_core
+    implementation deps.maps_ktx
 
     //Koin
     implementation deps.koin.scope
