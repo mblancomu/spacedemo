@@ -10,6 +10,8 @@
 # Java class files
 *.class
 
+app/src/main/res/values/google_maps_api.xml
+
 # Generated files
 bin/
 gen/
