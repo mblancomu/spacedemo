@@ -22,6 +22,7 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.maps.android.clustering.Cluster
 import com.google.maps.android.clustering.ClusterManager
 import com.google.maps.android.clustering.view.DefaultClusterRenderer
@@ -71,8 +72,11 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
+        val bottomBar =
+            requireActivity().findViewById<View>(R.id.bottom_nav) as BottomNavigationView
+        bottomBar.visibility = View.VISIBLE
         binding = FragmentMapBinding.inflate(inflater, container, false)
         setUpToolbar(binding.toolbar)
         return binding.root
@@ -89,6 +93,9 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
 
     override fun onResume() {
         super.onResume()
+        if (!mainViewModel.isNetworkAvailable.value!!) {
+            showErrorDialog(getString(R.string.no_network_message))
+        }
     }
 
     private fun setUpMap() {
@@ -180,7 +187,8 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         clusterManager.markerCollection.setInfoWindowAdapter(infoWindow)
 
         clusterManager.setOnClusterItemInfoWindowClickListener { markerCluster ->
-            val product = listOfProducts?.find { it.product_id == markerCluster.snippet ?: 0 }
+            val product =
+                listOfProducts?.find { it.product_id == markerCluster.snippet?.toInt() ?: 0 }
             product?.let { item ->
                 mainViewModel.setSelectedProduct(item)
                 DetailNavigation.openDetail(findNavController())
@@ -231,7 +239,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
         DefaultClusterRenderer<MarkerClusterItem>(context, map, clusterManager) {
         override fun onBeforeClusterItemRendered(
             item: MarkerClusterItem,
-            markerOptions: MarkerOptions
+            markerOptions: MarkerOptions,
         ) {
             markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_space))
         }
@@ -245,7 +253,7 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
                 .into(object : CustomTarget<Drawable>() {
                     override fun onResourceReady(
                         resource: Drawable,
-                        transition: Transition<in Drawable>?
+                        transition: Transition<in Drawable>?,
                     ) {
                         CoroutineScope(Dispatchers.Main).launch {
                             val icon = drawableToBitmap(resource)
@@ -291,11 +299,13 @@ class MapFragment : BaseFragment(), OnMapReadyCallback {
     }
 
     private fun setupClusterManager() {
-        map.clear()
-        clusterManager.clearItems()
-        CoroutineScope(Dispatchers.Main).launch {
-            addClusterItems()
-            setRenderer()
+        if (this::map.isInitialized) {
+            map.clear()
+            clusterManager.clearItems()
+            CoroutineScope(Dispatchers.Main).launch {
+                addClusterItems()
+                setRenderer()
+            }
         }
     }
 

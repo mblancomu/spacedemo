@@ -1,7 +1,6 @@
 package com.manuelblanco.spacedemo.ui.list
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -48,7 +47,7 @@ class ListFragment : BaseFragment(), SpaceItemListeners {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         val bottomBar =
             requireActivity().findViewById<View>(R.id.bottom_nav) as BottomNavigationView
@@ -70,7 +69,11 @@ class ListFragment : BaseFragment(), SpaceItemListeners {
 
     override fun onResume() {
         super.onResume()
-        bindViewModel()
+        if (mainViewModel.isNetworkAvailable.value!!){
+            bindViewModel()
+        } else {
+            showErrorDialog(getString(R.string.no_network_message))
+        }
     }
 
     private fun setUpAdapter() {
@@ -192,7 +195,7 @@ class ListFragment : BaseFragment(), SpaceItemListeners {
 
     private fun getNextPage(start: Int, end: Int): MutableList<Products> {
         if (start < listOfProducts.size && end < listOfProducts.size) {
-            tempListPage.addAll(listOfProducts.subList(start, end+1))
+            tempListPage.addAll(listOfProducts.subList(start, end + 1))
             return tempListPage
         } else if (start < listOfProducts.size) {
             tempListPage.addAll(listOfProducts.subList(start, listOfProducts.size))
@@ -202,7 +205,7 @@ class ListFragment : BaseFragment(), SpaceItemListeners {
     }
 
     private fun updateList(products: MutableList<Products>) {
-        if (!products.isNullOrEmpty()){
+        if (!products.isNullOrEmpty()) {
             productsAdapter.addProducts(products)
         } else {
             isLastPage = true
